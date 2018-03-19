@@ -19,7 +19,7 @@
   <script>
     document.querySelector('.add-note').addEventListener('click', e => {
       const note = document.createElement('bell-note');
-      note.innerHTML = "&nbsp;";
+      note.textContent = ".";
       note.note = 'c#';
       note.setAttribute('contenteditable', '');
       e.target.parentElement.insertBefore(note, e.target);
@@ -31,7 +31,7 @@
       arr.forEach(item => {
         const add = document.querySelector('.add-note');
         const note = document.createElement('bell-note');
-        note.innerHTML = "&nbsp;";
+        note.textContent = ".";
         note.note = item;
         note.setAttribute('contenteditable', '');
         add.parentElement.insertBefore(note, add);
