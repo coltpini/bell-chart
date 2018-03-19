@@ -88,6 +88,7 @@ class BellNote extends HTMLElement {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                cursor: pointer;
               }
               .note sup {
                 font-size: 0.6em;
@@ -130,6 +131,12 @@ class BellNote extends HTMLElement {
               }
               :host([note="b"]) .note {
                 --bg-color: var(--b);
+              }
+              @media print {
+                .note {
+                  -webkit-print-color-adjust: exact;
+                  color-adjust: exact;
+                }
               }
           </style>
           <section class="beat">

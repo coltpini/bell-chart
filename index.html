@@ -6,37 +6,35 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bell Chart</title>
   <script src="./js/bell-note.js" type="module"></script>
-  <style>
-    .add-note {
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
   <bell-note class="add-note" note="+" static>Add Note</bell-note>
-  <textarea></textarea>
-  <span class="add-many">add multiple</span>
+  <div class="quick-add-container">
+    <textarea></textarea>
+    <span class="add-many">add multiple</span>
+  </div>
   <script>
     document.querySelector('.add-note').addEventListener('click', e => {
       const note = document.createElement('bell-note');
-      note.textContent = ".";
+      note.innerHTML = '&nbsp;';
       note.note = 'c#';
       note.setAttribute('contenteditable', '');
       e.target.parentElement.insertBefore(note, e.target);
-    })
+    });
     document.querySelector('.add-many').addEventListener('click', e => {
       const list = document.querySelector('textarea').value;
-      console.log(list)
-      const arr = list.split(' ')
+      list.value = '';
+      const arr = list.split(' ');
       arr.forEach(item => {
         const add = document.querySelector('.add-note');
         const note = document.createElement('bell-note');
-        note.textContent = ".";
+        note.innerHTML = '&nbsp;';
         note.note = item;
         note.setAttribute('contenteditable', '');
         add.parentElement.insertBefore(note, add);
-      })
-    })
+      });
+    });
   </script>
 </body>
 </html>

@@ -1,0 +1,10 @@
+.add-note {
+  cursor: pointer;
+}
+
+@media print {
+  .add-note,  
+  .quick-add-container {
+    display: none;
+  }
+}
