@@ -11,7 +11,7 @@ class BellNote extends HTMLElement {
                 --size: 1.4em;
                 width: var(--size);
                 display: inline-block;
-                font-size: 10em;
+                font-size: 8em;
                 margin: 0.1em;
                 min-height: calc(var(--size) + 0.4em);
                 outline: none;
@@ -33,12 +33,8 @@ class BellNote extends HTMLElement {
               :host(:focus) .text {
                 outline: 1px solid blue;
               }
-              :host(:hover) .remove {
-                display: block;
-              }
-              :host([static]) .remove {
-                display: none !important;
-              }
+
+
               .menu.active {
                 display: block;
               }
@@ -64,15 +60,24 @@ class BellNote extends HTMLElement {
               .menu li:hover {
                 background: #eee;
               }
+              :host([static]) .remove {
+                display: none !important;
+              }
+              :host(:hover) .remove {
+                display: inline-block;
+              }
               .remove {
                 display: none;
+                left: 0;
+                top: 0;
+                width: var(--size);
+                height: var(--size);
                 position: absolute;
                 font-size: 0.1em;
                 border-radius: 50%;
-                height: 1em;
-                width: 1em;
-                background: red;
                 cursor: pointer;
+                color: red;
+                font-size: bold;
               }
               .word {
                 font-size: 0.3em;
@@ -137,10 +142,13 @@ class BellNote extends HTMLElement {
                   -webkit-print-color-adjust: exact;
                   color-adjust: exact;
                 }
+                .remove {
+                  display: none !important;
+                }
               }
           </style>
           <section class="beat">
-              <span class="remove">x</span>
+              <span class="remove">✖</span>
               <div class="note"></div>
               <div class="word">
                 <slot></slot>
