@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bell Chart</title>
+  <script src="/js/bell-note.js" type="module"></script>
+  <style>
+    .add-note {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <bell-note note="c" contenteditable>Word</bell-note>
+  <bell-note note="c#" contenteditable>Word</bell-note>
+  <bell-note note="d" contenteditable>Word</bell-note>
+  <bell-note note="d#" contenteditable>Word</bell-note>
+  <bell-note note="e" contenteditable>Word</bell-note>
+  <bell-note note="f" contenteditable>Word</bell-note>
+  <bell-note note="f#" contenteditable>Word</bell-note>
+  <bell-note note="g" contenteditable>Word</bell-note>
+  <bell-note note="g#" contenteditable>Word</bell-note>
+  <bell-note note="a" contenteditable>Word</bell-note>
+  <bell-note note="a#" contenteditable>Word</bell-note>
+  <bell-note note="b" contenteditable>Word</bell-note>
+
+  <bell-note class="add-note" note="+" static>Add Note</bell-note>
+  <script>
+    document.querySelector('.add-note').addEventListener('click', (e) => {
+      const note = document.createElement('bell-note');
+      note.textContent = "Word";
+      note.note = 'c#';
+      note.setAttribute('contenteditable', '');
+      e.target.parentElement.insertBefore(note, e.target);
+    })
+  </script>
+</body>
+</html>
